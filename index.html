@@ -55,6 +55,7 @@
             position: relative;
             background-size: cover;
             background-position: center;
+            background-attachment: scroll; /* Ensures correct rendering on mobile */
             color: white;
         }
 
@@ -102,10 +103,7 @@
             background-color: rgba(25, 25, 25, 0.2); /* Subtle dark overlay for readability */
         }
         .bg-areas-of-expertise-image {
-            background-image: url('img/areas-of-expertise-background.avif');
-            background-size: cover;
-            background-position: right center;
-            background-repeat: no-repeat;
+            /* The background is now an <img> element in the HTML */
         }
 
         .text-shadow {
@@ -189,6 +187,9 @@
         
         <!-- Areas of Expertise Section -->
         <section id="areas-of-expertise" class="bg-image-section bg-areas-of-expertise-image py-16 sm:py-20">
+            <!-- Background Image Layer -->
+            <img src="img/areas-of-expertise-background.avif" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; z-index: 0;">
+            
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-shadow-subtle">תחומי התמחות</h2>
