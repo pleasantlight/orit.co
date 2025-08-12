@@ -13,109 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        /* Custom styles */
-        @font-face {
-            font-family: 'Amatic SC';
-            src: url('res/fonts/Amatic_SC/AmaticSC-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            font-family: 'Assistant', sans-serif;
-            background-color: #FDFDFD; /* A very light, soft white */
-            padding-top: 88px; /* Adjusted padding for sticky header height */
-        }
-
-        .font-amatic-sc {
-            font-family: 'Amatic SC', sans-serif;
-        }
-
-        .btn {
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Style for the sticky header */
-        .sticky-header {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        /* Styles for sections with background images */
-        .bg-image-section {
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll; /* Ensures correct rendering on mobile */
-            color: white;
-        }
-
-        .bg-image-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: rgba(25, 25, 25, 0.45); /* Dark overlay for text contrast */
-            z-index: 1;
-        }
-        
-        /* Ensure content is above the overlay */
-        .bg-image-section > .container {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .bg-image-section h2, .bg-image-section h1 {
-             color: white;
-        }
-        
-        /* Specific background images - you can replace these URLs */
-        .bg-header-image {
-            background-image: url('img/header-background.avif');
-            background-position: center bottom;
-        }
-        .bg-quote-image {
-            background-image: url('img/quote-background.avif'), linear-gradient(to left, white, #594E4A);
-            background-size: auto 100%, cover;
-            background-position: left center, center;
-            background-repeat: no-repeat, no-repeat;
-        }
-        .bg-quote-image::before {
-            background-color: transparent;
-        }
-        .bg-about-image {
-            background-image: url('img/about-background.avif');
-            background-color: #C1B1C2;
-            background-blend-mode: soft-light;
-        }
-        .bg-about-image::before {
-            background-color: rgba(25, 25, 25, 0.2); /* Subtle dark overlay for readability */
-        }
-        .bg-areas-of-expertise-image {
-            /* The background is now an <img> element in the HTML */
-        }
-
-        .text-shadow {
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-        .text-shadow-darker {
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
-        }
-        .text-shadow-subtle {
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="antialiased text-gray-800">
 
@@ -187,9 +85,6 @@
         
         <!-- Areas of Expertise Section -->
         <section id="areas-of-expertise" class="bg-image-section bg-areas-of-expertise-image py-16 sm:py-20">
-            <!-- Background Image Layer -->
-            <img src="img/areas-of-expertise-background.avif" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; z-index: 0;">
-            
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-shadow-subtle">תחומי התמחות</h2>
