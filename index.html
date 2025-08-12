@@ -15,10 +15,21 @@
     
     <style>
         /* Custom styles */
+        @font-face {
+            font-family: 'Amatic SC';
+            src: url('res/fonts/Amatic_SC/AmaticSC-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
             font-family: 'Assistant', sans-serif;
             background-color: #FDFDFD; /* A very light, soft white */
             padding-top: 88px; /* Adjusted padding for sticky header height */
+        }
+
+        .font-amatic-sc {
+            font-family: 'Amatic SC', sans-serif;
         }
 
         .btn {
@@ -44,7 +55,6 @@
             position: relative;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Parallax effect */
             color: white;
         }
 
@@ -71,16 +81,41 @@
         
         /* Specific background images - you can replace these URLs */
         .bg-header-image {
-            background-image: url('img/header-background.avif')
+            background-image: url('img/header-background.avif');
+            background-position: center bottom;
         }
         .bg-quote-image {
-            background-image: url('img/quote-background.avif')
+            background-image: url('img/quote-background.avif'), linear-gradient(to left, white, #594E4A);
+            background-size: auto 100%, cover;
+            background-position: left center, center;
+            background-repeat: no-repeat, no-repeat;
+        }
+        .bg-quote-image::before {
+            background-color: transparent;
         }
         .bg-about-image {
             background-image: url('img/about-background.avif');
+            background-color: #C1B1C2;
+            background-blend-mode: soft-light;
         }
-        .bg-specializations-image {
-            background-image: url('img/specializations-background.avif');
+        .bg-about-image::before {
+            background-color: rgba(25, 25, 25, 0.2); /* Subtle dark overlay for readability */
+        }
+        .bg-areas-of-expertise-image {
+            background-image: url('img/areas-of-expertise-background.avif');
+            background-size: cover;
+            background-position: right center;
+            background-repeat: no-repeat;
+        }
+
+        .text-shadow {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .text-shadow-darker {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+        }
+        .text-shadow-subtle {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -97,7 +132,7 @@
                 </div>
                 <!-- Text Info (on the left in RTL) -->
                 <div class="text-right">
-                    <h1 class="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">אורית עציון-רוזנברג</h1>
+                    <h1 class="text-xl sm:text-xl font-bold text-gray-900 leading-tight font-amatic-sc">אורית עציון-רוזנברג</h1>
                     <p class="text-xs sm:text-sm text-gray-700 leading-tight">טיפול בתנועה | הדרכה | פסיכותרפיה</p>
                     <div class="flex justify-between items-center text-xs sm:text-sm text-gray-600 leading-tight">
                         <span>054-3060872</span>
@@ -112,7 +147,7 @@
     <!-- Header Section -->
     <header class="bg-image-section bg-header-image py-16 sm:py-24">
         <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl sm:text-5xl font-bold">אורית עציון-רוזנברג</h1>
+            <h1 class="text-4xl sm:text-5xl font-bold text-shadow-subtle">אורית עציון-רוזנברג</h1>
             <p class="mt-2 text-lg sm:text-xl text-gray-200">טיפול בתנועה, MA, הדרכה פסיכותרפיה</p>
         </div>
     </header>
@@ -122,8 +157,8 @@
         <div class="container mx-auto px-6 text-center">
              <blockquote class="max-w-2xl mx-auto relative">
                 <div class="absolute -top-4 -right-4 text-8xl text-gray-200/20 font-serif select-none" aria-hidden="true">“</div>
-                <p class="relative text-xl sm:text-2xl italic text-gray-100 z-10">התנועה היא השפה הנסתרת של הנפש</p>
-                <cite class="block text-left text-md text-gray-300 not-italic mt-2">- מרתה גראהם</cite>
+                <p class="relative text-xl sm:text-2xl italic text-gray-100 z-10 text-shadow">התנועה היא השפה הנסתרת של הנפש</p>
+                <cite class="block text-left text-md text-gray-300 not-italic mt-2 text-shadow">- מרתה גראהם</cite>
            </blockquote>
         </div>
     </div>
@@ -134,7 +169,8 @@
         <!-- About Section -->
         <section id="about" class="bg-image-section bg-about-image py-16 sm:py-20">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center space-y-4 text-base sm:text-lg leading-relaxed text-gray-200">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-shadow-subtle">אודות הטיפול</h2>
+                <div class="max-w-4xl mx-auto text-center space-y-4 text-lg sm:text-xl leading-relaxed text-gray-150 text-shadow-darker">
                     <p>
                         אני עובדת בגישה פסיכודינמית המשלבת את הטיפול המילולי והתנועתי עם הידע והניסיון שצברתי לאורך השנים, ונעזרת בכלים כדוגמת Somatic Experiencing - SE, Mindfulness, יוגה, וכן בכלים קוגניטיביים כגון DBT, EMDR ו- ACT.
                     </p>
@@ -151,11 +187,11 @@
             </div>
         </section>
         
-        <!-- Specializations Section -->
-        <section id="specializations" class="bg-image-section bg-specializations-image py-16 sm:py-20">
+        <!-- Areas of Expertise Section -->
+        <section id="areas-of-expertise" class="bg-image-section bg-areas-of-expertise-image py-16 sm:py-20">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8">תחומי התמחות</h2>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-shadow-subtle">תחומי התמחות</h2>
                     <ul class="space-y-4 text-center sm:text-right">
                         <li class="bg-white/20 hover:bg-white/30 transition-colors duration-300 p-4 rounded-lg shadow-sm flex items-center justify-center sm:justify-start">
                             <svg class="w-5 h-5 ml-3 text-blue-200 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
@@ -163,11 +199,15 @@
                         </li>
                         <li class="bg-white/20 hover:bg-white/30 transition-colors duration-300 p-4 rounded-lg shadow-sm flex items-center justify-center sm:justify-start">
                            <svg class="w-5 h-5 ml-3 text-blue-200 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                            <span class="text-base sm:text-lg text-white">פגיעה בערך העצמי, קושי בוויסות רגשי וניתוקים</span>
+                            <span class="text-base sm:text-lg text-white">פגיעה בערך העצמי, קושי בוויסות רגשי </span>
                         </li>
                          <li class="bg-white/20 hover:bg-white/30 transition-colors duration-300 p-4 rounded-lg shadow-sm flex items-center justify-center sm:justify-start">
                            <svg class="w-5 h-5 ml-3 text-blue-200 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                             <span class="text-base sm:text-lg text-white">טיפול בדיכאון וחרדה</span>
+                        </li>
+                        <li class="bg-white/20 hover:bg-white/30 transition-colors duration-300 p-4 rounded-lg shadow-sm flex items-center justify-center sm:justify-start">
+                           <svg class="w-5 h-5 ml-3 text-blue-200 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span class="text-base sm:text-lg text-white">משברי חיים</span>
                         </li>
                          <li class="bg-white/20 hover:bg-white/30 transition-colors duration-300 p-4 rounded-lg shadow-sm flex items-center justify-center sm:justify-start">
                            <svg class="w-5 h-5 ml-3 text-blue-200 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
@@ -184,22 +224,22 @@
     </main>
     
     <!-- Footer & Contact Section -->
-    <footer id="contact" class="bg-gray-100 py-12 sm:py-16">
+    <footer id="contact" style="background-color: #2F2F31;" class="py-12 sm:py-16">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-gray-800">ליצירת קשר</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-gray-200 text-shadow-subtle">ליצירת קשר</h2>
             <div class="max-w-md mx-auto space-y-4">
-                <p class="text-lg text-gray-800">אורית עציון-רוזנברג</p>
-                <a href="tel:054-3060872" class="btn inline-block bg-white text-gray-800 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-200">
+                <p class="text-2xl text-gray-200" style="font-size: 2rem;">אורית עציון-רוזנברג</p>
+                <a href="tel:054-3060872" class="btn inline-block bg-gray-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-600">
                     טלפון: 054-3060872
                 </a>
                 <a href="https://wa.me/972543060872" target="_blank" class="btn inline-block bg-green-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-green-600">
                     שליחת הודעה בוואטסאפ
                 </a>
                 <p class="text-lg pt-2">
-                    <a href="mailto:orit@orit.co" class="text-gray-800 hover:underline">orit@orit.co</a>
+                    <a href="mailto:orit@orit.co" class="text-gray-200 hover:underline">orit@orit.co</a>
                 </p>
             </div>
-             <p class="mt-12 text-sm text-gray-500">&copy; <span id="year"></span> כל הזכויות שמורות</p>
+             <p class="mt-12 text-sm text-gray-400">&copy; <span id="year"></span> כל הזכויות שמורות</p>
         </div>
     </footer>
     
